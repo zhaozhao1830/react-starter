@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { createStore, applyMiddleware, compose } from 'redux'
-import { request } from '@libs/middlewares'
+import { request } from 'configs'
 import { createLogger } from 'redux-logger'
 import reducers from '../reducers'
 

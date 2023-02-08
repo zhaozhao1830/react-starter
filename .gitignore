@@ -1,6 +1,5 @@
 node_modules/
 dist/*.js
-dist/*.css
 dist/images/
 */npm-debug.log*
 */access.log

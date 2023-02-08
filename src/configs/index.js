@@ -2,5 +2,5 @@
 export const { ENV, rootPath, moduleKey, fetchWithToken } = globalConfig.default
 
 export const authApiPrefix = '/authorization/api/web'
-export const apiPrefix = '/perioprtwksbe/api'
 
+export { request } from '@libs/middlewares'

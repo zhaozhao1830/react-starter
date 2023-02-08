@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  target: ['web', 'es5'],
   optimization: {
     splitChunks: {
       chunks: 'all',
@@ -44,7 +43,6 @@ module.exports = {
         test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
-        // options: { rootMode: 'upward' }
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -61,23 +59,20 @@ module.exports = {
     enforceExtension: false,
     alias: {
       '@libs': path.join(__dirname, '../libs'),
-      '@common': path.join(__dirname, '../common'),
-      '@src': path.join(__dirname, '../src')
+      '@src': path.join(__dirname, '../src'),
+      '@common': path.join(__dirname, '../common')
     },
     modules: [
       path.join(__dirname, '../src'),
-      path.join(__dirname, '../common'),
       path.join(__dirname, '../libs'),
-      path.join(__dirname, '../node_modules'),
-      'node_modules'
+      path.join(__dirname, '../node_modules')
     ]
   },
   plugins: [
     new webpack.ProvidePlugin({
       _: 'lodash',
       React: 'react',
-      PropTypes: 'prop-types',
-      Promise: 'es6-promise'
+      PropTypes: 'prop-types'
     }),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/)
   ]

@@ -1,4 +1,3 @@
-// TODO 该模块举例，后面删除
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -10,7 +9,7 @@ export default function Workspace({ abc = 123 }) {
   return (
     <div>
       Workspace&nbsp;&nbsp;
-      <Link to='/workspace/transfusion'>to patientlist</Link>
+      <Link to='/plist'>to patientlist</Link>
     </div>
   )
 }

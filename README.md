@@ -1,5 +1,3 @@
-react-starter 脚手架
+Front end develop frame
 
-- nodejs >= 18.12.1
-- react v17
-- antd v4
+nodejs >= 18.12.1

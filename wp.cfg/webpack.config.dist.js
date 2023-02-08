@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
@@ -41,7 +41,7 @@ module.exports = (env) => {
       filename: '[name].[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
       path: path.resolve(__dirname, '../dist'),
-      publicPath: '/transfusion/i18n/dist/'
+      publicPath: '/drg/dist/'
     },
     module: {
       rules: [
@@ -102,12 +102,10 @@ module.exports = (env) => {
     },
     plugins: [
       new DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify('production')
-        }
+        'process.env.NODE_ENV': JSON.stringify('production')
       }),
       new CleanWebpackPlugin({
-        cleanOnceBeforeBuildPatterns: ['**/*', '!ico/**', '!font/**', '!logos/**', '!styles/**', '!js/**']
+        cleanOnceBeforeBuildPatterns: ['**/*', '!ico/**', '!font/**', '!styles/**']
       }),
       new HtmlWebpackPlugin({
         inject: true,

@@ -1,19 +1,22 @@
-
-
+/* eslint-disable import/no-extraneous-dependencies */
+import { ConfigProvider } from 'antd'
+import zhCN from 'antd/es/locale/zh_CN'
 import moment from 'moment'
+import store from 'store'
+import { Provider } from 'react-redux'
+import Routes from 'Routes'
 import 'moment/locale/zh-cn'
 
-import App from './Provider'
+moment.locale('zh-cn')
 
-const { ENV } = globalConfig.default
-
-
-class WrapperApp extends React.Component {
-
-
-  render() {
-    return <App />
-  }
+function App() {
+  return (
+    <Provider store={store}>
+      <ConfigProvider locale={zhCN}>
+        <Routes />
+      </ConfigProvider>
+    </Provider>
+  )
 }
 
-export default WrapperApp
+export default App

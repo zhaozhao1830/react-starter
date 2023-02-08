@@ -1,10 +1,14 @@
-/* eslint-disable no-shadow */
 import 'core-js'
 import 'regenerator-runtime/runtime'
 
-import ReactDOM from 'react-dom'
+import App from 'components/App'
+import ReactDOM from 'react-dom/client'
 import '../common/styles/bootstrap.scss'
-import 'antd/dist/antd.less'
-import AfterConfigRender from '@libs/modules/AfterConfigRender'
+import * as echarts from 'echarts'
+import theme from './configs/echarts-theme'
 
-ReactDOM.render(<AfterConfigRender appCode='pbm' />, document.getElementById('root'))
+echarts.registerTheme('drg', theme)
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(<App />)

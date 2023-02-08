@@ -1,31 +1,24 @@
 import { authApiPrefix, apiPrefix } from 'configs'
+import { checkStatus } from 'actions/action-helper'
 import myfetch from '@libs/utils/myfetch'
 import 'whatwg-fetch'
 
-const { HOST } = globalConfig.default
+export {
+  getFormData,
+  savePreSummary,
+  changePreSummaryStatus,
+  getFormConfig,
+  getPostOpSummaryRecord,
+  deletePostOpSummaryRecord
+} from './form'
+export { getOpRiskData } from './opRisk'
 
-export const errorCode = {
-  OK: '000000'
-}
+const { HOST, AUTH_HOST } = globalConfig.default
 
-export const checkStatus = (resp) => {
-  if (resp.status >= 200 && resp.status < 300) {
-    return resp.json().then((res) => {
-      if (!res.status || res.status.code === errorCode.OK) {
-        return res
-      }
-      throw Error(resp.status.code)
-    })
-  }
-  throw new Error(`${resp.status} ${resp.statusText}`)
-}
-
-// eslint-disable-next-line import/prefer-default-export
-export async function loadUserInfo(token) {
-  const response = await fetch(`${HOST}${authApiPrefix}/user/?application=transfusion`, {
-    headers: {
-      authorization: `Bearer ${token}`
-    }
+/** 获取全局配置 */
+export async function loadConfigs() {
+  const response = await myfetch({
+    url: `${HOST}${apiPrefix}/web/config/configs`
   })
-  return checkStatus(response)
+  return response.data || []
 }
