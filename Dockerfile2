@@ -1,0 +1,15 @@
+FROM node_base:1
+MAINTAINER Yang Yang <yang.yang@healscitech.com>
+
+COPY config /danyun-fe/config
+COPY dev /danyun-fe/dev
+COPY dist /danyun-fe/dist
+COPY libs /danyun-fe/libs
+COPY src /danyun-fe/src
+COPY theme /danyun-fe/theme
+COPY wp.cfg /danyun-fe/wp.cfg
+COPY .babelrc /danyun-fe/
+COPY package.json /danyun-fe/
+
+LABEL version="0.1" \
+      description="This image is used to set up node env."
